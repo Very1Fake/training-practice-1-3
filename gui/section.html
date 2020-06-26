@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{{ section }}{% endblock %}
+{% block nav_title %}{{ section }}{% endblock %}
+{% block nav_button_icon %}back{% endblock %}
+{% block nav_button %}onclick="window.location.href='../{{ course }}'"{% endblock %}
+
+{% block content %}
+    <div id="section">
+        {% for k, v in enum(lessons.items()) %}
+            <div class="lesson {% if v[1].status == 2 %}low{% elif v[1].status == 1 %}elevating-shadow-high high active{% else %}locked{% endif %} elevating-shadow"
+                 {% if v[1].status != 0 %}onclick="window.location.href+='/{{ v[0] }}'"{% endif %}>
+                <div class="number">
+                    <span>{{ k + 1 }} / {{ len(lessons) }}</span>
+                </div>
+                <div class="name">{{ v[1].name }}</div>
+                <div class="footer">
+                    <i class="material-icon">{% if v[1].status == 2 %}done{% elif v[1].status == 1 %}
+                        play_arrow{% else %}lock{% endif %}</i>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

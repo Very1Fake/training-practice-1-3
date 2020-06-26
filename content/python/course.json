@@ -1,0 +1,61 @@
+{
+  "id": "python",
+  "name": "Python",
+  "title": "Python Tutorial",
+  "description": "Learn Python, one of today's most in-demand programming languages on-the-go! Practice writing Python code, collect points, & show off your skills now!",
+  "icon": "images/python.svg",
+  "abstracts": {
+    "what-is-the-python": "<h1>Welcome to Python!</h1><p><b>Python</b> is a high-level programming language, with applications in numerous areas, including web programming, scripting, scientific computing, and artificial intelligence.</p><p>It is very popular and used by organizations such as Google, NASA, the CIA, and Disney.</p>",
+    "what-is-the-python2": "<h1>Welcome to Python!</h1><p>The three major versions of Python are 1.x, 2.x and 3.x. These are subdivided into minor versions, such as 2.7 and 3.3.<br>Code written for Python 3.x is guaranteed to work in all future versions.<br>Both Python Version 2.x and 3.x are used currently.<br>This course covers <b>Python 3.x</b>, but it isn't hard to change from one version to another.</p><p>Python has several different implementations, written in various languages.<br>The version used in this course, <b>CPython</b>, is the most popular by far.</p>"
+  },
+  "quizzes": {
+    "what-is-the-python": {
+      "question": "Python is a:",
+      "type": 1,
+      "choices": [
+        "Programming language",
+        "Development environment",
+        "Set of editing tools"
+      ],
+      "answer": 0
+    },
+    "what-is-the-python2": {
+      "question": "Which of these statements is true?",
+      "type": 1,
+      "choices": [
+        "Python code must be always compiled",
+        "Python 1.7 is the most widely used version",
+        "CPython is an implementation of Python"
+      ],
+      "answer": 2
+    }
+  },
+  "lessons": {
+    "what-is-the-python": {
+      "name": "What is the Python?",
+      "parts": [
+        "@what-is-the-python",
+        "?what-is-the-python",
+        "@what-is-the-python2",
+        "?what-is-the-python2"
+      ]
+    }
+  },
+  "sections": {
+    "basic-concepts": {
+      "name": "Basic Concepts",
+      "icon": "code",
+      "lessons": [
+        "what-is-the-python"
+      ]
+    }
+  },
+  "groups": {
+    "group-1": {
+      "shortcut": [],
+      "sections": [
+        "basic-concepts"
+      ]
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='highlight/styles/atom-one-light.css') }}">
+    <script src="{{ url_for('static', filename='highlight/highlight.pack.js') }}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}
+
+{% block title %}{{ lesson.name }}{% endblock %}
+{% block nav_title %}{{ lesson.name }}{% endblock %}
+{% block nav_button_icon %}back{% endblock %}
+{% block nav_button %}onclick="window.location.href='../'"{% endblock %}
+
+{% block subheader %}
+    <div class="sub-nav-bar">
+        <div class="nav-bar-content">
+            <div class="stepper" style="width: 100%">
+                {% for k, v in enum(lesson.parts) %}
+                    <div class="step">
+                        <div class="step-content">
+                            {% if k != 0 %}
+                                <div class="step-connector"></div>{% endif %}
+                            <div class="step-icon-container step-icon {% if k + 1 == pos %}active{% elif k + 1 > pos and k + 1 > part %}locked{% endif %}"
+                                 {% if k + 1 <= part and k + 1 <= part %}onclick="window.location.href='./{{ k + 1 }}'"{% endif %}>
+                                <i class="material-icon">{% if v[0] == '@' %}article{% else %}
+                                    help_outline{% endif %}</i>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="lesson-container">
+        {% if alert %}
+            <div class="lesson-alert-card elevating-shadow">
+                <div>Wrong answer</div>
+                <p>Try to read abstract more carefully</p>
+            </div>
+        {% endif %}
+        <div class="lesson-card elevating-shadow">
+            <div class="lesson-content">
+                <form id="part" action="" method="post">
+                    {% if content[0] == 0 %}
+                        <article class="abstract">
+                            {{ content[1].text|safe }}
+                        </article>
+                    {% elif content[0] == 1 %}
+                        <div class="question">
+                            <p>{{ content[1].question|safe }}</p>
+                        </div>
+                        <div class="simple">
+                            <input type="text" name="answer" placeholder="Answer">
+                        </div>
+                    {% elif content[0] == 2 %}
+                        <div class="question">
+                            <p>{{ content[1].question }}</p>
+                        </div>
+                        <div class="choices-pad">
+                            {% for i in shuffle(content[1].choices) %}
+                                <label class="choice">
+                                    <input type="radio" name="choice" value="{{ content[1].choices.index(i) }}">
+                                    <span>{{ i }}</span>
+                                </label>
+                            {% endfor %}
+                        </div>
+                    {% elif content[0] == 3 %}
+                        <div class="question">
+                            <p>{{ content[1].question }}</p>
+                        </div>
+                        <div class="choices-pad">
+                            {% for i in shuffle(content[1].choices) %}
+                                <label class="choice">
+                                    <input type="checkbox" name="{{ i }}">
+                                    <span>{{ i }}</span>
+                                </label>
+                            {% endfor %}
+                        </div>
+                    {% elif content[0] == 4 %}
+                        <div class="question">
+                            <p>{{ content[1].question }}</p>
+                        </div>
+                        <div class="edit">
+                            <pre><code class="nohighlight">{{ prepare(content[1].task, content[1].answers)|safe }}</code></pre>
+                        </div>
+                    {% endif %}
+                </form>
+            </div>
+            <div class="lesson-actions">
+                <div class="lesson-button" onclick="document.getElementById('part').submit();">
+                    <span>Continue</span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

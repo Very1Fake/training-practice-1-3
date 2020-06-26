@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    {% block head %}{% endblock %}
+</head>
+<body>
+<header class="nav">
+    <div class="nav-bar">
+        <div class="nav-bar-content">
+            <button id="nav-button"
+                    class="{% block nav_button_state %}active{% endblock %} {% block nav_button_icon %}{% endblock %}"
+                    {% block nav_button %}{% endblock %}></button>
+            <span class="nav-bar-title">{% block nav_title %}{% endblock %}</span>
+        </div>
+    </div>
+    {% block subheader %}{% endblock %}
+</header>
+<div class="content">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

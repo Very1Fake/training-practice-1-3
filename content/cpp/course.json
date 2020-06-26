@@ -1,0 +1,1151 @@
+{
+  "id": "cpp",
+  "name": "C++",
+  "title": "C++ Tutorial",
+  "description": "C++ is a general-purpose programming language. The language has object-oriented, generic, and functional features in addition to facilities for low-level memory manipulation.",
+  "icon": "logo.jpg",
+  "abstracts": {
+    "welcome-to-c++": "<h1>Welcome to C++</h1><p>C++ is a general-purpose programming language.<br>C++ is used to create computer programs. Anything from art applications, music players and even video games!</p>",
+    "hello-world1": "<h1>Your First C++ Program</h1><p>A C++ program is a collection of commands or statements.</p><p>Below is a simple code that has \"Hello world!\" as its output.</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main()\n{\n  cout << \"Hello world!\";\n  return 0;\n}</code></pre><p>Let's break down the parts of the code.</p><pre><code>#include &ltiostream&gt</code></pre><p>C++ offers various headers, each of which contains information needed for programs to work properly. This particular program calls for the header <code>&ltiostream&gt</code>.<br>The <b>number sign</b> (<code>#</code>) at the beginning of a line targets the compiler's pre-processor. In this case, <code>#include</code> tells the pre-processor to include the <code>&ltiostream&gt</code> header.</p>",
+    "hello-world2": "<h1>Your First C++ Program</h1><p>The C++ compiler ignores blank lines.<br>In general, blank lines serve to improve the code's readability and structure.</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main()\n{\n  cout << \"Hello world!\";\n  return 0;\n}</code></pre><p>In our code, the line <code>using namespace std;</code> tells the compiler to use the <code>std</code> (standard) <b>namespace</b>.</p>",
+    "hello-world3": "<h1>Main</h1><p>Program execution begins with the main function, <code>int main()</code>.</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main()\n{\n  cout << \"Hello world!\";\n  return 0;\n}</code></pre><p>Curly brackets <code>{ }</code> indicate the beginning and end of a function, which can also be called the function's body. The information inside the brackets indicates what the function does when executed.</p>",
+    "hello-world4": "<h1>Your First C++ Program</h1><p>The next line, <code>cout << \"Hello world!\";</code> results in the display of \"Hello world!\" to the screen.</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main()\n{\n  cout << \"Hello world!\";\n  return 0;\n}</code></pre><p>In C++, <b>streams</b> are used to perform input and output operations.<br>In most program environments, the standard default output destination is the screen. In C++, <code>cout</code> is the stream object used to access it.<br><code>cout</code> is used in combination with the insertion operator. Write the insertion operator as <code><<</code> to insert the data that comes after it into the stream that comes before.</p>",
+    "hello-world5": "<h1>Statements</h1><p>A <b>block</b> is a set of logically connected statements, surrounded by opening and closing curly braces.<br>For example:</p><pre><code>{\n  cout << \"Hello world!\"; \n  return 0;\n}</code></pre>",
+    "printing-text1": "<h1>Printing text</h1><p>You can add multiple insertion operators after <code>cout</code>.</p><pre><code>cout << \"This \" << \"is \" << \"awesome!\";</code></pre>",
+    "printing-text2": "<h1>New Line</h1><p>The <code>cout</code> operator does not insert a line break at the end of the output.<br>One way to print two lines is to use the <code>endl</code> manipulator, which will put in a line break.</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main()\n{\n  cout << \"Hello world!\" << endl;\n  cout << \"I love programming!\";\n  return 0;\n}</code></pre><p>The <code>endl</code> manipulator moves down to a new line to print the second text.</p>",
+    "printing-text3": "<h1>New Lines</h1><p>The new line character <b>\\n</b> can be used as an alternative to <code>endl</code>.<br>The backslash (\\) is called an <b>escape character</b>, and indicates a \"special\" character.</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main()\n{\n   cout << \"Hello world! \\n\";\n   cout << \"I love programming!\";\n   return 0;\n}</code></pre>",
+    "printing-text4": "<h1>New Lines</h1><p>Two newline characters placed together result in a blank line.</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main()\n{\n   cout << \"Hello world! \\n\\n\";\n   cout << \"I love programming!\";\n   return 0;\n}</code></pre>",
+    "printing-text5": "<h1>Multiple New Lines</h1><p>Using a single <code>cout</code> statement with as many instances of <code>\\n</code> as your program requires will print out multiple lines of text.</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main()\n{\n   cout << \" Hello \\n world! \\n I \\n love \\n programming!\";\n   return 0;\n}</code></pre>",
+    "comments1": "<h1>Comments</h1><p><em>Comments</em> are explanatory statements that you can include in the C++ code to explain what the code is doing<br>The compiler ignores everything that appears in the comment, so none of that information shows in the result.\n\nA comment beginning with <b>two slashes</b> (<code>//</code>) is called a single-line comment. The slashes tell the compiler to ignore everything that follows, until the end of the line.</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main()\n{\n   // prints \"Hello world\"\n   cout << \"Hello world!\";\n   return 0;\n}</code></pre><p>When the above code is compiled, it will ignore the // prints \"Hello world\" statement.</p>",
+    "comments2": "<h1>Multi-Line Comments</h1><p>Comments that require multiple lines begin with <code>/*</code> and end with <code>*/</code><br>You can place them on the same line or insert one or more lines between them.</p><pre><code>/* This is a comment */\n\n/* C++ comments can\n    span multiple lines\n */</code></pre>",
+    "comments3": "<h1>Using Comments</h1><p>Comments can be written anywhere, and can be repeated any number of times throughout the code.<br>Within a comment marked with <code>/*</code> and <code>*/</code>, <code>//</code> characters have no special meaning, and vice versa. This allows you to \"nest\" one comment type within the other.</p><pre><code class=\"cpp\">/* Comment out printing of Hello world!\n\n  cout << \"Hello world!\"; // prints Hello world!\n\n*/</code></pre>",
+    "variables1": "<h1>Variables</h1><p>Creating a <b>variable</b> reserves a memory location, or a space in memory for storing values. The compiler requires that you provide a <b>data type</b> for each variable you declare.<br>C++ offer a rich assortment of built-in as well as user defined <b>data types</b>.</p><p><b>Integer</b>, a built-in type, represents a whole number value. Define <b>integer</b> using the keyword int.<br>C++ requires that you specify the <b>type</b> and the <b>identifier</b> for each variable defined.<br>An <b>identifier</b> is a name for a variable, function, class, module, or any other user-defined item. An <b>identifier</b> starts with a letter (A-Z or a-z) or an underscore (_), followed by additional letters, underscores, and digits (0 to 9).<br>For example, define a variable called <b>myVariable</b> that can hold <b>integer</b> values as follows:</p><pre><code>int myVariable = 10; </code></pre>",
+    "variables2": "<h1>Variables</h1><p>Now, let's assign a value to the variable and print it.</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main()\n{\n   int myVariable = 10;\n   cout << myVariable;\n   return 0;\n}\n// Outputs 10</code></pre>",
+    "variables3": "<h1>Variables</h1><p>Define all variables with a <b>name</b> and a <b>data type</b> before using them in a program. In cases in which you have multiple variables of the same type, it's possible to define them in one declaration, separating them with <b>commas</b>.</p><pre><code>int a, b;\n// defines two variables of type int</code></pre><p>A variable can be assigned a value, and can be used to perform operations.\nFor example, we can create an additional variable called <b>sum</b>, and add two variables together.</p><pre><code>int a = 30; \nint b = 15; \nint sum = a + b;\n// Now sum equals 45</code></pre>",
+    "variables4": "<h1>Variables</h1><p>Let's create a program to calculate and print the sum of two integers.</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main()\n{\n   int a = 30;\n   int b = 12;\n   int sum = a + b;\n\n   cout << sum;\n\n    return 0;\n}\n\n//Outputs 42</code></pre>",
+    "working-with-variables1": "<h1>Declaring Variables</h1><p>You have the option to assign a value to the variable at the time you declare the variable or to declare it and assign a value later.<br>You can also change the value of a variable.</p><pre><code>int a; \nint b = 42;\n\na = 10;\nb = 3;</code></pre>",
+    "working-with-variables2": "<h1>User Input</h1><p>To enable the user to input a value, use <code>cin</code> in combination with the extraction operator (<code>>></code>). The variable containing the extracted data follows the operator.<br>The following example shows how to accept user input and store it in the <code>num</code> variable:</p><pre><code>int num;\ncin >> num;</code></pre>",
+    "working-with-variables3": "<h1>Accepting User Input</h1><p>The following program prompts the user to input a number and stores it in the variable <code>a</code>:</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main()\n{\n   int a;\n   cout << \"Please enter a number \\n\";\n   cin >> a;\n\n   return 0;\n}</code></pre><p>When the program runs, it displays the message \"Please enter a number\", and then waits for the user to enter a number and press Enter, or Return.\nThe entered number is stored in the variable <code>a</code>.</p>",
+    "working-with-variables4": "<h1>Accepting User Input</h1><p>You can accept user input multiple times throughout the program:</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main()\n{\n    int a, b;\n    cout << \"Enter a number \\n\";\n    cin >> a;\n    cout << \"Enter another number \\n\";\n    cin >> b;\n\n    return 0;\n}</code></pre>",
+    "working-with-variables5": "<h1>Accepting User Input</h1><p>Let's create a program that accepts the input of two numbers and prints their sum.</p><pre><code>#include &ltiostream&gt\nusing namespace std;\n\nint main() \n{\n  int a, b;\n  int sum;\n  cout << \"Enter a number \\n\";\n  cin >> a;\n  cout << \"Enter another number \\n\";\n  cin >> b;\n  sum = a + b;\n  cout << \"Sum is: \" << sum << endl;\n\n  return 0;\n}</code></pre>",
+    "basic-arithmetic1": "<h1>Arithmetic Operators</h1><p>C++ supports these arithmetic operators.</p><div class=\"a-table\"><table><thead><tr><th>Operator</th><th>Symbol</th><th>Example</th></tr></thead><tbody><tr><td>Addition</td><td>+</td><td>x + y</td></tr><tr><td>Substraction</td><td>-</td><td>x - y</td></tr><tr><td>Multiplication</td><td>*</td><td>x * y</td></tr><tr><td>Division</td><td>/</td><td>x / y</td></tr><tr><td>Modulus</td><td>%</td><td>x % y</td></tr></tbody></table></div><p>The addition operator adds its operands together.</p><pre><code class=\"cpp\">int x = 40 + 60;\ncout << x;\n\n// Outputs 100</code></pre>",
+    "basic-arithmetic2": "<h1>Subtraction</h1><p>The subtraction operator subtracts one operand from the other.</p><pre><code class=\"cpp\">int x = 100 - 60;\ncout << x;\n\n//Outputs 40</code></pre>",
+    "basic-arithmetic3": "<h1>Multiplication</h1><p>The multiplication operator multiplies its operands.</p><pre><code class=\"cpp\">int x = 5 * 6;\ncout << x;\n\n//Outputs 30</code></pre>",
+    "basic-arithmetic4": "<h1>Division</h1><p>The division operator divides the first operand by the second. Any remainder is dropped in order to return an <b>integer</b> value.</p><pre><code class=\"cpp\">int x = 10 / 3;\ncout << x;\n\n// Outputs 3</code></pre><p>If one or both of the operands are floating point values, the division operator performs floating point division.</p>",
+    "basic-arithmetic5": "<h1>Modulus</h1><p>The modulus operator (%) is informally known as the remainder operator because it returns the remainder after an <b>integer</b> division.</p><pre><code class=\"cpp\">int x = 25 % 7;\ncout << x;\n\n// Outputs 4</code></pre>",
+    "basic-arithmetic6": "<h1>Operator Precedence</h1><p>Operator <b>precedence</b> determines the grouping of terms in an expression, which affects how an expression is evaluated. Certain operators take higher precedence over others; for example, the multiplication operator has higher precedence over the addition operator.</p><pre><code>int x = 5+2*2;\ncout << x;\n// Outputs 9</code></pre><p>The program above evaluates 2*2 first, and then adds the result to 5.</p><p>As in mathematics, using <b>parentheses</b> alters operator precedence.</p><pre><code>int x = (5 + 2) *2;\ncout << x;\n\n// Outputs 14</code></pre>",
+    "basic-arithmetic7": "<h1>Operator Precedence</h1><p>Parentheses force the operations to have higher precedence. If there are parenthetical expressions nested within one another, the expression within the innermost parentheses is evaluated first.",
+    "assigment-a-increment1": "<h1>Assignment Operators</h1><p>The simple <b>assignment</b> operator (=) assigns the right side to the left side.</p><p>C++ provides shorthand operators that have the capability of performing an operation and an assignment at the same time.</p><pre><code class=\"cpp\">int x = 10;\nx += 4; // equivalent to x = x + 4\nx -= 5; // equivalent to x = x - 5</code></pre>",
+    "assigment-a-increment2": "<h1>Assignment Operators</h1><p>The same shorthand syntax applies to the multiplication, division, and modulus operators.</p><pre><code class=\"cpp\">x *= 3; // equivalent to x = x * 3\nx /= 2; // equivalent to x = x / 2\nx %= 4; // equivalent to x = x % 4</code></pre>",
+    "assigment-a-increment3": "<h1>Increment Operator</h1><p>The <b>increment</b> operator is used to increase an integer's value by one, and is a commonly used C++ operator.</p><pre><code class=\"cpp\">x++; //equivalent to x = x + 1</code></pre>",
+    "assigment-a-increment4": "<h1>Increment Operator</h1><pre><code>int x = 11;\nx++;\ncout << x;\n\n// Outputs 12</code></pre>",
+    "assigment-a-increment5": "<h1>Increment Operator</h1><p>The increment operator has two forms, <b>prefix</b> and <b>postfix</b>.</p><pre><code class=\"cpp\">++x; // prefix\nx++; // postfix</code></pre><p><b>Prefix</b> increments the value, and then proceeds with the expression.<br><b>Postfix</b> evaluates the expression and then performs the incrementing.</p><pre><code class=\"cpp\">x = 5;\ny = ++x;\n// x is 6, y is 6</code></pre><pre><code class=\"cpp\">x = 5;\ny = x++;\n// x is 6, y is 5</code></pre>",
+    "assigment-a-increment6": "<h1>Decrement Operator</h1><p>The <b>decrement</b> operator (--) works in much the same way as the increment operator, but instead of increasing the value, it decreases it by one.</p><pre><code>--x; // prefix\nx--; // postfix</code></pre>",
+    "the-if-statement1": "<h1>Decision Making</h1><p>The <code>if</code> statement is used to execute some code if a condition is true.</p><pre><code>if (condition) {\n   statements\n}</code></pre><p>The <b>condition</b> specifies which expression is to be evaluated. If the <b>condition</b> is true, the statements in the curly brackets are executed.</p>",
+    "the-if-statement2": "<h1>The if Statement</h1><p>Use <b>relational operators</b> to evaluate conditions</p><pre><code>if (7 > 4) {\n  cout <<  \"Yes\"; \n}\n\n// Outputs \"Yes\"</code></pre><p>The <code>if</code> statement evaluates the condition (7>4), finds it to be <code>true</code>, and then executes the <code>cout</code> statement.<br>If we change the greater operator to a less than operator (7<4), the statement will not be executed and nothing will be printed out.</p>",
+    "the-if-statement3": "<h1>Relational Operators</h1><p>Additional relational operators:</p><div class=\"a-table\"><table><thead><tr><th>Operator</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>>=</td><td>Greater than or equal to</td><td>7 >= 4  True</td></tr><tr><td><=</td><td>Less than or equal to</td><td>7 <= 4  False</td></tr><tr><td>==</td><td>Equal to</td><td>7 == 4  False</td></tr><tr><td>!=</td><td>Not equal to</td><td>7 != 4  True</td></tr></tbody></table></div><pre><code>if (10 == 10) {\n  cout <<  \"Yes\";\n}\n\n// Outputs \"Yes</code></pre>",
+    "the-if-statement4": "<h1>Relational Operators</h1><p>The <b>not equal to</b> operator evaluates the operands, determines whether or not they are equal. If the operands are not equal, the condition is evaluated to <code>true</code>.</p><pre><code>if (10 != 10) {\n  cout <<  \"Yes\";\n}</code></pre>",
+    "the-if-statement5": "<h1>Relational Operators</h1><p>You can use relational operators to compare variables in the <code>if</code> statement.</p><pre><code>int a = 55;\nint b = 33;\nif (a > b) {\n  cout << \"a is greater than b\";\n}\n\n// Outputs \"a is greater than b\"</code></pre>",
+    "the-else-statement1": "<h1>The else Statement</h1><p>An <code>if</code> statement can be followed by an optional <code>else</code> statement, which executes when the condition is <code>false</code>.</p><pre><code>if (condition) {\n  //statements\n}\nelse {\n  //statements\n}</code></pre><p>The code above will test the condition:<br>- If it evaluates to <code>true</code>, then the code inside the <code>if</code> statement will be executed.<br>- If it evaluates to <code>false</code>, then the code inside the <code>else</code> statement will be executed.</p>",
+    "the-else-statement2": "<h1>The else Statement</h1><pre><code>int mark = 90;\n\nif (mark < 50) {\n  cout << \"You failed.\" << endl;\n}\nelse {\n  cout << \"You passed.\" << endl;\n}\n\n// Outputs \"You passed.\"</code></pre>",
+    "the-else-statement3": "<h1>The else Statement</h1><p>In all previous examples only one statement was used inside the if/else statement, but you may include as many statements as you want.</p><pre><code>int mark = 90;\n\nif (mark < 50) {\n  cout << \"You failed.\" << endl;\n  cout << \"Sorry\" << endl;\n}\nelse {\n  cout << \"Congratulations!\" << endl;\n  cout << \"You passed.\" << endl;\n  cout << \"You are awesome!\" << endl;\n}\n\n/* Outputs\nCongratulations!\nYou passed.\nYou are awesome!\n*/</code></pre>",
+    "the-else-statement4": "<h1>Nested if Statements</h1><p>You can also include, or <b>nest</b>, if statements within another if statement.</p><pre><code>int mark = 100;\n\nif (mark >= 50) {\n  cout << \"You passed.\" << endl;\n  if (mark == 100) {\n    cout <<\"Perfect!\" << endl;\n  }\n}\nelse {\n  cout << \"You failed.\" << endl;\n}\n\n/*Outputs\nYou passed.\nPerfect!\n*/</code></pre>",
+    "the-else-statement5": "<h1>Nested if else Statements</h1><p>C++ provides the option of nesting an unlimited number of if/else statements.</p><pre><code>int age = 18;\nif (age > 14) {\n  if(age >= 18) {\n    cout << \"Adult\";\n  }\n  else {\n    cout << \"Teenager\";\n  }\n}\nelse {\n  if (age > 0) {\n    cout << \"Child\";\n  }\n  else {\n    cout << \"Something's wrong\";\n  }\n}</code></pre>",
+    "the-else-statement6": "<h1>The if else Statement</h1><p>n if/else statements, <b>a single statement</b> can be included without enclosing it into curly braces.</p><pre><code>int a = 10;\nif (a > 4)\n  cout << \"Yes\";\nelse\n  cout << \"No\";</code></pre>",
+    "the-while-loop1": "<h1>Loops</h1><p>A <b>loop</b> repeatedly executes a set of statements until a particular condition is satisfied.</p><p>A <code>while</code> loop statement repeatedly executes a target statement as long as a given condition remains <code>true</code>.</p><pre><code>while (condition) {\n   statement(s);\n}</code></pre><p>The loop iterates while the condition is <code>true</code>.</p>",
+    "the-while-loop2": "<h1>The while Loop</h1><p>The loop's <b>body</b> is the block of statements within curly braces.</p><pre><code class=\"cpp\">int num = 1;\nwhile (num < 6) {\n  cout << \"Number: \" << num << endl;\n  num = num + 1;\n}\n\n/* Outputs\nNumber: 1\nNumber: 2\nNumber: 3\nNumber: 4\nNumber: 5 \n*/</code></pre><p>The example above declares a variable equal to 1 (int num = 1).<br>The <b>while</b> loop checks the condition (num < 6), and executes the statements in its body, which increment the value of <b>num</b> by one each time the loop runs.</p>",
+    "the-while-loop3": "<h1>The while Loop</h1><p>The increment value can be changed. If changed, the number of times the loop is run will change, as well.</p><pre><code class=\"cpp\">int num = 1;\nwhile (num < 6) {\n  cout << \"Number: \" << num << endl;\n  num = num + 3;\n}\n\n/* Outputs\nNumber: 1\nNumber: 4 \n*/</code></pre>",
+    "the-for-loop1": "<h1>The for loop</h1><p>A <code>for</code> loop is a repetition control structure that allows you to efficiently write a loop that executes a specific number of times.</p><pre><code class=\"cpp\">for ( init; condition; increment ) {\n  statement(s);\n}</code></pre><p>The <b>init</b> step is executed first, and does not repeat.<br>Next, the <b>condition</b> is evaluated, and the body of the loop is executed if the condition is <code>true</code>.<br>In the next step, the <b>increment</b> statement updates the loop control variable.<br>Then, the loop's body repeats itself, only stopping when the condition becomes <code>false</code>.</p><pre><code>for (int x = 1; x < 10; x++) {\n  // some code\n}</code></pre>",
+    "the-for-loop2": "<h1>The for Loop</h1><p>The example below uses a for loop to print numbers from 0 to 9.</p><pre><code class=\"cpp\">for (int a = 0; a < 10; a++) {\n  cout << a << endl;\n}\n\n/* Outputs\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n*/</code></pre><p>In the <b>init</b> step, we declared a variable a and set it to equal 0.<br>a < 10 is the <b>condition</b>.<br>After each iteration, the a++ <b>increment</b> statement is executed.</p>",
+    "the-for-loop3": "<h1>The for Loop</h1><p>It's possible to change the increment statement.</p><pre><code class=\"cpp\">for (int a = 0; a < 50; a+=10) {\n  cout << a << endl;\n}\n\n/* Outputs\n0\n10\n20\n30\n40\n*/</code></pre><p>You can also use decrement in the statement.</p><pre><code class=\"cpp\">for (int a = 10; a >= 0; a -= 3) {\n  cout << a << endl;\n}\n\n/* Outputs\n10\n7\n4\n1\n*/</code></pre>",
+    "the-do-while-loop1": "<h1>The do...while Loop</h1><p>Unlike <code>for</code> and <code>while</code> loops, which test the loop condition at the top of the loop, the <b>do...while</b> loop checks its condition at the bottom of the loop.<br>A <b>do...while</b> loop is similar to a <b>while</b> loop. The one difference is that the <b>do...while</b> loop is guaranteed to execute <b>at least one time</b>.</p><pre><code class=\"cpp\">do {\n  statement(s);\n} while (condition);</code></pre>",
+    "the-do-while-loop2": "<h1>while vs do...while</h1><p>If the condition evaluated to <code>false</code>, the statements in the <code>do</code> would still run once:</p><pre><code>int a = 42;\ndo {\n  cout << a << endl;\n  a++;\n} while(a < 5);\n\n// Outputs 42</code></pre>",
+    "the-do-while-loop3": "<h1>The do...while Loop</h1><p>As with other loops, if the condition in the loop never evaluates to <code>false</code>, the loop will run forever.</p><pre><code>int a = 42;\ndo {\n  cout << a << endl;\n} while (a > 0);</code></pre>",
+    "the-switch-statement1": "<h1>The switch Statement</h1><p>The <code>switch</code> statement tests a variable against a list of values, which are called <b>cases</b>, to determine whether it is equal to any of them.</p><pre><code>switch (expression) {\n  case value1:\n    statement(s);\n    break;\n  case value2:\n    statement(s);\n    break;\n    ...\n  case valueN:\n    statement(s);\n    break;\n}</code></pre><p>Switch evaluates the expression to determine whether it's equal to the value in the case statement. If a match is found, it executes the statements in that case.</p>",
+    "the-switch-statement2": "<h1>The switch Statement</h1><p>Here is the previous example written using a single <code>switch</code> statement:</p><pre><code>int age = 42;\nswitch (age) {\n  case 16:\n    cout << \"Too young\";\n    break;\n  case 42:\n    cout << \"Adult\";\n    break;\n  case 70:\n    cout << \"Senior\";\n    break;\n}</code></pre>",
+    "the-switch-statement3": "<h1>The default Case</h1><p>In a switch statement, the optional <code>default</code> case can be used to perform a task when none of the cases is determined to be true.</p><pre><code>int age = 25;\nswitch (age) {\n  case 16:\n    cout << \"Too young\";\n    break;\n  case 42:\n    cout << \"Adult\";\n    break;\n  case 70:\n    cout << \"Senior\";\n    break;\n  default:\n    cout << \"This is the default case\";\n}\n\n// Outputs \"This is the default case\"</code></pre><p>The <code>default</code> statement's code executes when none of the cases matches the switch expression.</p>",
+    "the-switch-statement4": "<h1>The <code>break</code> Statement</h1><p>The break statement's role is to terminate the switch statement.<br>In instances in which the variable is equal to a case, the statements that come after the case continue to execute until they encounter a <code>break</code> statement. In other words, leaving out a <code>break</code> statement results in the execution of all of the statements in the following cases, even those that don't match the expression.</p><pre><code>int age = 42;\nswitch (age) {\n  case 16:\n    cout << \"Too young\" << endl;\n  case 42:\n    cout << \"Adult\" << endl;\n  case 70:\n    cout << \"Senior\" << endl;\n  default:\n    cout <<\"This is the default case\" << endl;\n}\n/* Outputs\nAdult\nSenior\nThis is the default case\n*/</code></pre><p>As you can see, the program executed the matching case statement, printing \"Adult\" to the screen. With no specified <code>break</code> statement, the statements continued to run after the matching case. Thus, all the other case statements printed. This type of behavior is called <b>fall-through</b>.</p>",
+    "logical-operators1": "<h1>Logical Operators</h1><p>Use <b>logical operators</b> to combine conditional statements and return <code>true</code> or <code>false</code>.</p><div class=\"a-table\"><table><thead><tr><th>Operator</th><th>Name</th><th>Example</th></tr></thead><tbody><tr><td>&&</td><td>AND Operator</td><td>y && y</td></tr><tr><td>||</td><td>OR Operator</td><td>x || y</td></tr><tr><td>!</td><td>NOT Operator</td><td>!x</td></tr></tbody></table></div>",
+    "logical-operators2": "<h1>The AND Operator</h1><p>The <b>AND</b> operator works the following way:</p><div class=\"a-table\"><table><thead><tr><th>Left Operand</th><th>Right Operand</th><th>Result</th></tr></thead><tbody><tr><td>false</td><td>false</td><td>false</td></tr><tr><td>false</td><td>true</td><td>false</td></tr><tr><td>true</td><td>false</td><td>false</td></tr><tr><td>true</td><td>true</td><td>true</td></tr></tbody></table></div><pre><code>int age = 20;\nif (age > 16 && age < 60) {\n  cout << \"Accepted!\" << endl;\n}\n\n// Outputs \"Accepted\"</code></pre>",
+    "logical-operators3": "<h1>The OR Operator</h1><p>The <b>OR</b> (||) operator returns true if any one of its operands is <code>true</code>.</p><div class=\"a-table\"><table><thead><tr><th>Left Operand</th><th>Right Operand</th><th>Result</th></tr></thead><tbody><tr><td>false</td><td>false</td><td>false</td></tr><tr><td>false</td><td>true</td><td>true</td></tr><tr><td>true</td><td>false</td><td>true</td></tr><tr><td>true</td><td>true</td><td>true</td></tr></tbody></table></div><pre><code>int age = 16;\nint score = 90;\nif (age > 20 || score > 50) {\n  cout << \"Accepted!\" << endl;\n}\n\n// Outputs \"Accepted!\"</code></pre>",
+    "logical-operators4": "<h1>Logical NOT</h1><p>The logical <b>NOT</b> (!) operator works with just a single operand, reversing its logical state. Thus, if a condition is <code>true</code>, the <b>NOT</b> operator makes it <code>false</code>.</p><div class=\"a-table\"><table><thead><tr><th>Right Operand</th><th>Result</th></tr></thead><tbody><tr><td>true</td><td>false</td></tr><tr><td>false</td><td>true</td></tr></tbody></table></div><pre><code>int age = 10;\nif ( !(age > 16) ) {\n  cout << \"Your age is less than 16\" << endl;\n}\n\n// Outputs \"Your age is less than 16\"</code></pre>",
+    "introduction-to-data-types1": "<h1>Data Types</h1><p>The operating system allocates memory and selects what will be stored in the reserved memory based on the variable's <em>data type</em>.<br>The data type defines the proper use of an identifier, what kind of data can be stored, and which types of operations can be performed.</p>",
+    "introduction-to-data-types2": "<h1>Expressions</h1><p>The examples below show legal and illegal C++ expressions.</p><pre><code class=\"cpp\">55+15 //  legal C++ expression\n//Both operands of the + operator are integers\n\n55 + \"John\" // illegal\n// The + operator is not defined for integer and string</code></pre>",
+    "introduction-to-data-types3": "<h1>Numeric Data Types</h1><p>Numeric data types include:<br><b>Integers</b> (whole numbers), such as -7, 42.<br><b>Floating point</b> numbers, such as 3.14, -42.67.",
+    "introduction-to-data-types4": "<h1>Strings & Characters</h1><p>A <b>string</b> is composed of numbers, characters, or symbols. String literals are placed in <b>double quotation</b> marks; some examples are \"Hello\", \"My name is David\", and similar.</p><p>Characters are single letters or symbols, and must be enclosed between <b>single quotes</b>, like 'a', 'b', etc.</p>",
+    "introduction-to-data-types5": "<h1>Booleans</h1><p>The Boolean data type returns just two possible values: <code>true</code> (1) and <code>false</code> (0).</p>",
+    "int-float-double1": "<h1>Integers</h1><p>The <b>integer</b> type holds non-fractional numbers, which can be positive or negative. Examples of integers would include 42, -42, and similar numbers.</p>",
+    "int-float-double2": "<h1>Integers</h1><p>Use the <code>int</code> keyword to define the integer data type.</p><pre><code>int a = 42;</code></pre><p>Several of the basic types, including integers, can be modified using one or more of these type <b>modifiers</b>:<br><code>signed</code>: A signed integer can hold both negative and positive numbers.<br><code>unsigned</code>: An unsigned integer can hold only positive values.<br><code>short</code>: Half of the default size.<br><code>long</code>: Twice the default size.</p><pre><code>unsigned long int a;</code></pre>",
+    "int-float-double3": "<h1>Floating Point Numbers</h1><p>A <b>floating point</b> type variable can hold a real number, such as 420.0, -3.33, or 0.03325.\nThe words floating point refer to the fact that a varying number of digits can appear before and after the decimal point. You could say that the decimal has the ability to \"<b>float</b>\".</p><p>There are three different floating point data types: <code>float</code>, <code>double</code>, and <code>long double</code>.</p><p>In most modern architectures, a <code>float</code> is 4 bytes, a <code>double</code> is 8, and a <code>long double</code> can be equivalent to a <code>double</code> (8 bytes), or 16 bytes.</p><pre><code>double temp = 4.21;</code></pre>",
+    "string-char-bool1": "<h1>Strings</h1><p>A <code>string</code> is an ordered sequence of characters, enclosed in <b>double quotation marks</b>.\nIt is part of the Standard Library.\nYou need to include the <code>&ltstring&gt</code> library to use the <code>string</code> data type. Alternatively, you can use a library that includes the <code>string</code> library.</p><pre><code>#include &ltstring&gt\nusing namespace std;\n\nint main() {\n  string a = \"I am learning C++\";\n  return 0;\n}</code></pre>",
+    "string-char-bool2": "<h1>Characters</h1><p>\nA <code>char</code> variable holds a 1-byte <b>integer</b>. However, instead of interpreting the value of the <code>char</code> as an <b>integer</b>, the value of a char variable is typically interpreted as an ASCII character.</p><p>A <em>character</em> is enclosed between <b>single quotes</b> (such as 'a', 'b', etc).</p><pre><code>char test = 'S';</code></pre>",
+    "string-char-bool3": "<h1>Booleans</h1><p><em>Boolean</em> variables only have two possible values: <code>true</code> (1) and <code>false</code> (0).<br>To declare a boolean variable, we use the keyword bool.</p><pre><code class=\"cpp\">bool online = false;\nbool logged_in = true;</code></pre>",
+    "variable-naming-rules1": "<h1>Variable Naming Rules</h1><p>Use the following rules when naming variables:<br>- All variable names must begin with a letter of the alphabet or an underscore( _ ).<br>- After the initial letter, variable names can contain additional letters, as well as numbers. Blank spaces or special characters are not allowed in variable names.</p>",
+    "variable-naming-rules2": "<h1>Case-Sensitivity</h1><p>C++ is <b>case-sensitive</b>, which means that an identifier written in uppercase is not equivalent to another one with the same name in lowercase.<br>For example, <em>myvariable</em> is not the same as <em>MYVARIABLE</em> and not the same as <em>MyVariable</em>.<br>These are three <b>different</b> variables.</p>",
+    "variable-naming-rules3": "<h1>Variable Naming Rules</h1><p>C++ keyword (reserved word) cannot be used as variable names.<br>For example, <code>int</code>, <code>float</code>, <code>double</code>, <code>cout</code> cannot be used as a variable name.</p>"
+  },
+  "quizzes": {
+    "welcome-to-c++": {
+      "type": 1,
+      "question": "C++ is a:",
+      "choices": [
+        "General purpose programming language",
+        "Movie making program",
+        "Client-side scripting language"
+      ],
+      "answer": 0
+    },
+    "hello-world1": {
+      "type": 3,
+      "question": "Fill in the blanks to include the &ltiostream&gt header:",
+      "task": "#include <{0}>",
+      "answers": [
+        "iostream"
+      ]
+    },
+    "hello-world2": {
+      "type": 3,
+      "question": "Fill in the blanks to use names from std namespace:",
+      "task": "#include &ltiostream&gt\n{0} namespace {1};",
+      "answers": [
+        "using",
+        "std"
+      ]
+    },
+    "hello-world3": {
+      "type": 1,
+      "question": "What is the starting point for a computer program?",
+      "choices": [
+        "Main function",
+        "From <iostream>",
+        "First line"
+      ],
+      "answer": 0
+    },
+    "hello-world4": {
+      "type": 1,
+      "question": "Each instruction must end with a:",
+      "choices": [
+        "semicolon ( ; )",
+        "comma ( , )",
+        "colon ( : )",
+        "dot ( . )"
+      ],
+      "answer": 1
+    },
+    "hello-world5": {
+      "type": 3,
+      "question": "Fill in the blanks to output \"Hello, world!\" on the screen:",
+      "task": "{0} << \"Hello, world!\";",
+      "answers": [
+        "cout"
+      ]
+    },
+    "printing-text1": {
+      "type": 3,
+      "question": "Fill in the blanks to print \"I love C++\":",
+      "task": "{0} << \"I love C++\"{1}",
+      "answers": [
+        "cout",
+        ";"
+      ]
+    },
+    "printing-text2": {
+      "type": 1,
+      "question": "What should be used to move to a new line?",
+      "choices": [
+        "startl",
+        "return",
+        "endl",
+        "#include"
+      ],
+      "answer": 2
+    },
+    "printing-text3": {
+      "type": 1,
+      "question": "What is the symbol for moving to a new line (alternative to the endl)?",
+      "choices": [
+        "\\a",
+        "\\n",
+        "\\b"
+      ],
+      "answer": 1
+    },
+    "printing-text4": {
+      "type": 3,
+      "question": "Fill in the blanks to print the words \"hello\" and \"world\" separated by a blank line:",
+      "task": "{0} << \"hello {1}\\n\";\ncout {2} \"world\";",
+      "answers": [
+        "cout",
+        "\\n",
+        "<<"
+      ]
+    },
+    "printing-text5": {
+      "type": 3,
+      "question": "Fill in the blanks to print \"I love C++\" with each word in a new line",
+      "task": "cout << \"I {0} love {1} C++\";",
+      "answers": [
+        "\\n",
+        "\\n"
+      ]
+    },
+    "comments1": {
+      "type": 1,
+      "question": "Which choice indicates a single-line comment?",
+      "choices": [
+        "//single line comment",
+        "**single line comment",
+        "##single line comment"
+      ],
+      "answer": 0
+    },
+    "comments2": {
+      "type": 3,
+      "question": "Create a block comment (multiline comment) in C++:",
+      "task": "{0} this is a block/multiline\n comment in C++ {1}",
+      "answers": [
+        "/*",
+        "*/"
+      ]
+    },
+    "comments3": {
+      "type": 1,
+      "question": "Which of the following is true?",
+      "choices": [
+        "Comments are ignored by the compiler",
+        "Single line comment starts with an * (asterisk)",
+        "Comments are used to confuse programmers"
+      ],
+      "answer": 0
+    },
+    "variables1": {
+      "type": 0,
+      "question": "What is the data type name for integers?",
+      "answer": "int"
+    },
+    "variables2": {
+      "type": 3,
+      "question": "Suppose you have a variable named var. Type in the code to print its value:",
+      "task": "{0} << var;",
+      "answers": [
+        "cout"
+      ]
+    },
+    "variables3": {
+      "type": 3,
+      "question": "Fill in the blanks to declare variable sum equal to a + b:",
+      "task": "int {0} = a {1} b",
+      "answers": [
+        "sum",
+        "+"
+      ]
+    },
+    "variables4": {
+      "type": 2,
+      "question": "Which two statements are true for variables in C++?",
+      "choices": [
+        "Variables do not have names",
+        "Variables must have a data type",
+        "Variables are pre-processor directives",
+        "Variables must be declared before their use"
+      ],
+      "answers": [
+        1,
+        3
+      ]
+    },
+    "working-with-variables1": {
+      "type": 3,
+      "question": "Fill in the blanks to declare variable a of type int and then assign 7 as its value:",
+      "task": "{0} a;\na {1} 7;",
+      "answers": [
+        "int",
+        "="
+      ]
+    },
+    "working-with-variables2": {
+      "type": 1,
+      "question": "What is the purpose of cin?",
+      "choices": [
+        "Print variable's value",
+        "Take information (data) from the user",
+        "Includes a header file"
+      ],
+      "answer": 1
+    },
+    "working-with-variables3": {
+      "type": 3,
+      "question": "Type in the code that allows for entering a number and storing it in the variable a:",
+      "task": "{0} >> a;",
+      "answers": [
+        "cin"
+      ]
+    },
+    "working-with-variables4": {
+      "type": 3,
+      "question": "Fill in the blanks to declare a variable var of type int, enter a value, and store it in the variable var.",
+      "task": "int var;\n{0} << \"Please enter a value \\n\";\n{1} >> var;",
+      "answers": [
+        "cout",
+        "cin"
+      ]
+    },
+    "working-with-variables5": {
+      "type": 3,
+      "question": "Fill in the missing parts of the code to declare sum as a variable, assign it the value 21 + 7, and print out its value.",
+      "task": "int sum;\n{0} = 21 + 7;\n{1} << \"sum is equal to \" << {2} << endl;",
+      "answers": [
+        "sum",
+        "cout",
+        "sum"
+      ]
+    },
+    "basic-arithmetic1": {
+      "type": 3,
+      "question": "Type in a code to declare a variable x, assign it to value 4 + 6, and print it to the screen.",
+      "task": "int {0};\nx = 4 + 6;\n{1} << x {2} endl;",
+      "answers": [
+        "x",
+        "cout",
+        "<<"
+      ]
+    },
+    "basic-arithmetic2": {
+      "type": 3,
+      "question": "Fill in the missing parts in the following code to print 12.",
+      "task": "\nint x = 24;\nint y;\ny = {0} - 12;\ncout << {1} << endl;",
+      "answers": [
+        "x",
+        "y"
+      ]
+    },
+    "basic-arithmetic3": {
+      "type": 1,
+      "question": "Which symbol is used to multiply variables in C++?",
+      "choices": [
+        "%",
+        "+",
+        "/",
+        "*"
+      ],
+      "answer": 3
+    },
+    "basic-arithmetic4": {
+      "type": 3,
+      "question": "Fill in the blanks to declare variable x and assign it the value 81 divided by 3:",
+      "task": "int {0} = 81 {1} 3;\ncout << x;",
+      "answers": [
+        "x",
+        "/"
+      ]
+    },
+    "basic-arithmetic5": {
+      "type": 1,
+      "question": "Which operator is used to determine the remainder?",
+      "choices": [
+        "*",
+        "%",
+        "+"
+      ],
+      "answer": 1
+    },
+    "basic-arithmetic6": {
+      "type": 3,
+      "question": "Fill in the missing parentheses to have x's value equal 14.",
+      "task": "int x = {0} 4 + 3 {1} * 2;\ncout << x;",
+      "answers": [
+        "(",
+        ")"
+      ]
+    },
+    "basic-arithmetic7": {
+      "type": 2,
+      "question": "Which two statements are correct for arithmetic operations?",
+      "choices": [
+        "Addition is done before multiplication",
+        "Parentheses first, then multiplication and division",
+        "Multiplication is done before addition",
+        "Subtraction is done first"
+      ],
+      "answers": [
+        1,
+        2
+      ]
+    },
+    "assigment-a-increment1": {
+      "type": 1,
+      "question": "What is the alternative for x = x + 10?",
+      "choices": [
+        "x = y + 10;",
+        "x -= 9;",
+        "x += 10;"
+      ],
+      "answer": 2
+    },
+    "assigment-a-increment2": {
+      "type": 3,
+      "question": "Fill in the missing part of the following code to divide x by 5 using the /= operator.",
+      "task": "int x = 10;\nx {0} = {1}",
+      "answers": [
+        "/",
+        "5"
+      ]
+    },
+    "assigment-a-increment3": {
+      "type": 1,
+      "question": "x++ has the same meaning as:",
+      "choices": [
+        "x = x - 4;",
+        "x = x + 1;",
+        "x /= 17;"
+      ],
+      "answer": 1
+    },
+    "assigment-a-increment4": {
+      "type": 3,
+      "question": "Fill in the blanks to increment x's value by one using the ++ operator and print its value to the screen.",
+      "task": "int x = 20;\nx {0};\ncout << {1} << endl;",
+      "answers": [
+        "++",
+        "x"
+      ]
+    },
+    "assigment-a-increment5": {
+      "type": 2,
+      "question": "What's the difference between ++x and x++?",
+      "choices": [
+        "++x uses x's value before incrementing it",
+        "x++ uses x's value then increments it",
+        "x++ increments x's value before using it",
+        "++x increments x's value before using it"
+      ],
+      "answers": [
+        1,
+        3
+      ]
+    },
+    "assigment-a-increment6": {
+      "type": 3,
+      "question": "Please type in a code that decrements x's value using the -- operator.",
+      "task": "int x = 20;\nx {0};",
+      "answers": [
+        "--"
+      ]
+    },
+    "the-if-statement1": {
+      "type": 1,
+      "question": "Which choice shows the correct syntax for the if statement in C++?",
+      "choices": [
+        "IF test",
+        "if test",
+        "if (test) {}"
+      ],
+      "answer": 2
+    },
+    "the-if-statement2": {
+      "type": 3,
+      "question": "Fill in the blanks to compare the variables and print \"hi there\" to the screen:",
+      "task": "int x = 5;\nint y = 3;\n{0} (x > {1}) {{\n  cout << \"hi there\";\n}}",
+      "answers": [
+        "if",
+        "y"
+      ]
+    },
+    "the-if-statement3": {
+      "type": 1,
+      "question": "Which is the correct operator for equality testing?",
+      "choices": [
+        "*=",
+        "==",
+        "=",
+        "<<"
+      ],
+      "answer": 1
+    },
+    "the-if-statement4": {
+      "type": 3,
+      "question": "Fill in the blanks to compare the variables and print \"not equal\" to the screen.",
+      "task": "int x = 10;\nint y = 8;\nif (x != {0}) {{\n  cout << \"not equal\";\n}}",
+      "answers": [
+        "y"
+      ]
+    },
+    "the-if-statement5": {
+      "type": 3,
+      "question": "Fill in the blanks to print the value of the greatest variable:",
+      "task": "int a = 98;\nint b = 76;\nif ({0} > b) {{\n  cout << \"greatest is \" << a << endl;\n}}\nif ({1} > a) {{\n  {2} << \"greatest is \" << b << endl;\n}}",
+      "answers": [
+        "a",
+        "b",
+        "cout"
+      ]
+    },
+    "the-else-statement1": {
+      "type": 3,
+      "question": "Fill in the blanks to check if the age variable is greater than 18:",
+      "task": "int age = 25;\n{0} ({1} > 18) {{\n  cout << \"Adult\";\n}}",
+      "answers": [
+        "if",
+        "age"
+      ]
+    },
+    "the-else-statement2": {
+      "type": 3,
+      "question": "Fill in the missing parts of the following code:",
+      "task": "int x = 22;\n{0} (x > 33) {{\n  cout << \"x is greater than 33\" << endl;\n}} {1} {{\n  cout << \"x is not greater than 33\" << endl;\n}}",
+      "answers": [
+        "if",
+        "else"
+      ]
+    },
+    "the-else-statement3": {
+      "type": 1,
+      "question": "How many statements could be placed between if's braces?",
+      "choices": [
+        "As many as you want",
+        "2",
+        "1"
+      ],
+      "answer": 0
+    },
+    "the-else-statement4": {
+      "type": 3,
+      "question": "Fill in the missing parts of the nested if statements to print \"it works!\" to the screen.",
+      "task": "int x = 37;\nif (x > 22) {{\n  {0} (x > 31) {{\n    {1} << \"it works!\" << endl;\n  }}\n}}",
+      "answers": [
+        "if",
+        "cout"
+      ]
+    },
+    "the-else-statement5": {
+      "type": 1,
+      "question": "How many nested if statements can an if statement contain?",
+      "choices": [
+        "Only two",
+        "None",
+        "As many as you want"
+      ],
+      "answer": 2
+    },
+    "the-else-statement6": {
+      "type": 3,
+      "question": "Fill in the blanks to compare the variables and print the \"printing in the else\" text to the screen:",
+      "task": "int x = 10;\nint y = 20;\nif ({0} > {1}) {{\n  cout << \"some other text\" << endl;\n}}\nelse {{\n  cout << \"printing in the else\" << endl;\n}}",
+      "answers": [
+        "x",
+        "y"
+      ]
+    },
+    "the-while-loop1": {
+      "type": 1,
+      "question": "Which is the right syntax for the while loop?",
+      "choices": [
+        "while (bacon <= 5) { cout << \"text\"; }",
+        "WHILE bacon <= 5 { cout << \"text\"; }",
+        "while bacon <= 5 cout << \"text\";"
+      ],
+      "answer": 0
+    },
+    "the-while-loop2": {
+      "type": 3,
+      "question": "Fill in the blanks to print x's value to the screen 5 times.",
+      "task": "int x = 1;\n{0} (x <= 5) {{\n  cout << \"value is \" << x << endl;\n  x = {1} + 1;\n}}",
+      "answers": [
+        "while",
+        "x"
+      ]
+    },
+    "the-while-loop3": {
+      "type": 3,
+      "question": "Fill in the blanks to increment bacon's value by 2 and print only the even values.",
+      "task": "int bacon = 0;\n{0} (bacon <= 20) {{\n  cout << \"bacon is \" << bacon << endl;\n  bacon = bacon + {1};\n}}",
+      "answers": [
+        "while",
+        "2"
+      ]
+    },
+    "the-for-loop1": {
+      "type": 1,
+      "question": "Which one is the correct syntax for the 'for' loop?",
+      "choices": [
+        "for (int x = 1; x < 10; x++) { }",
+        "FOR x = 1, x < 10, x++ { }",
+        "for (int x = 1,, x < 10; x++; ) { }",
+        "for int x =1; y < 10, ++y { }"
+      ],
+      "answer": 0
+    },
+    "the-for-loop2": {
+      "type": 3,
+      "question": "Fill in the blanks to print x's values to the screen 10 times:",
+      "task": "{0} (int x = 1; x <= 10; {1}++) {{\n  cout << x << endl;\n}}",
+      "answers": [
+        "for",
+        "x"
+      ]
+    },
+    "the-for-loop3": {
+      "type": 3,
+      "question": "Fill in the blanks to print EVEN (multiples of 2) values from 0 to 20 using a for loop:",
+      "task": "for (int x = 0{0} x <= {1} x += {2}) {{\n  cout << {3} << endl;\n}}",
+      "answers": [
+        ";",
+        "20;",
+        "2",
+        "x"
+      ]
+    },
+    "the-do-while-loop1": {
+      "type": 1,
+      "question": "Which is the correct syntax for do.... while loop?",
+      "choices": [
+        "do { } while (test);",
+        "doo while(test)",
+        "DO while test;"
+      ],
+      "answer": 0
+    },
+    "the-do-while-loop2": {
+      "type": 1,
+      "question": "How is a do... while loop different from a while loop?",
+      "choices": [
+        "do...while loop tests the condition before running the code",
+        "while loop runs the code before testing the condition",
+        "do...while loop runs your code at least one time"
+      ],
+      "answer": 2
+    },
+    "the-do-while-loop3": {
+      "type": 3,
+      "question": "Fill in the blanks to print \"this is a loop\" to the screen 15 times",
+      "task": "\nint x = 1;\ndo {{\n  cout << \"this is a loop\" << endl;\n  x++;\n}} \nwhile ({0} <= {1});",
+      "answers": [
+        "x",
+        "15"
+      ]
+    },
+    "the-switch-statement1": {
+      "type": 1,
+      "question": "Which choice shows the correct syntax for the switch statement?",
+      "choices": [
+        "SWITCH test { }",
+        "switch test;",
+        "switch (test) { }"
+      ],
+      "answer": 2
+    },
+    "the-switch-statement2": {
+      "type": 3,
+      "question": "Fill in the blanks to test the age variable against 16, 18, and 21 values and print corresponding texts to the screen.",
+      "task": "{0} (age) {{\n  case 16:\n    cout << \"you can drive a car\" << endl;\n    break;\n  {1} 18:\n    cout << \"buy a lottery ticket\" << endl;\n    {2};\n  case 21:\n    cout << \"buy some beer\" << endl;\n    break;\n}}",
+      "answers": [
+        "switch",
+        "case",
+        "break"
+      ]
+    },
+    "the-switch-statement3": {
+      "type": 3,
+      "question": "Fill in the blanks to test the value of the variable x; if x is 2, print \"it's 2\" to the screen; otherwise (the default case), print \"the default case\" to the screen.",
+      "task": "\nint x;\ncin >> x;\nswitch ({0}) {{\n  case 2:\n    cout << \"it's 2\" << endl;\n    break;\n  {1}:\n    cout << \"the default case\" << endl;\n}}",
+      "answers": [
+        "x",
+        "default"
+      ]
+    },
+    "the-switch-statement4": {
+      "type": 1,
+      "question": "What would occur if we forget to insert 'break' after a 'case'?",
+      "choices": [
+        "The rest of the cases would be executed, until encoutering a break statement",
+        "Nothing",
+        "A compile-time error"
+      ],
+      "answer": 0
+    },
+    "logical-operators1": {
+      "type": 3,
+      "question": "Fill in the blanks to test both conditions in the following if statement.",
+      "task": "\nint age = 23;\nint money = 4;\nif (age > 21 {0} money > 500) {{\n  cout << \"welcome\" << endl;\n}}",
+      "answers": [
+        "&&"
+      ]
+    },
+    "logical-operators2": {
+      "type": 1,
+      "question": "The result of the 'a && b' is true if:",
+      "choices": [
+        "Both a and b are false",
+        "Either a or b is true",
+        "Both a and b are true"
+      ],
+      "answer": 2
+    },
+    "logical-operators3": {
+      "type": 3,
+      "question": "Fill in the blank to print \"welcome\" on the screen.",
+      "task": "\nint age = 26;\nint money = 4;\nif (age > 21 {0} money > 500) {{\n  cout << \"welcome\" << endl;\n}}",
+      "answers": [
+        "||"
+      ]
+    },
+    "logical-operators4": {
+      "type": 2,
+      "question": "The result of a || b is true if (select two answers):",
+      "choices": [
+        "Neither a nor b is true",
+        "Either a or b is true",
+        "Both a and b are true"
+      ],
+      "answers": [
+        1,
+        2
+      ]
+    },
+    "introduction-to-data-types1": {
+      "type": 1,
+      "question": "Data types are intended to:",
+      "choices": [
+        "Define the proper use of an identifier",
+        "Define header file name",
+        "Define a loop or an if statement"
+      ],
+      "answer": 0
+    },
+    "introduction-to-data-types2": {
+      "type": 1,
+      "question": "Which of the following expressions are legal in C++?",
+      "choices": [
+        "\"hello\" * 3.14",
+        "12 + 4",
+        "\"hello\" + 11",
+        "12 + \"Mike\""
+      ],
+      "answer": 1
+    },
+    "introduction-to-data-types3": {
+      "type": 2,
+      "question": "Which of the following are correct values for the numeric data types?",
+      "choices": [
+        "3.14",
+        "'abc'",
+        "\"hello\"",
+        "1000"
+      ],
+      "answers": [
+        0,
+        3
+      ]
+    },
+    "introduction-to-data-types4": {
+      "type": 1,
+      "question": "Which one is a legal character, not a string?",
+      "choices": [
+        "\"this\"",
+        "\"or this\"",
+        "'this'",
+        "'t'"
+      ],
+      "answer": 3
+    },
+    "introduction-to-data-types5": {
+      "type": 0,
+      "question": "What is the result of 10 == 10 operation? Is it true or false?",
+      "answer": "true"
+    },
+    "int-float-double1": {
+      "type": 1,
+      "question": "Is 3.14 ad integer?",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "answer": 0
+    },
+    "int-float-double2": {
+      "type": 3,
+      "question": "Fill in the blank to declare a variable var that contains only positive numbers.",
+      "task": "{0} int var;",
+      "answers": [
+        "unsigned"
+      ]
+    },
+    "int-float-double3": {
+      "type": 1,
+      "question": "Can floating point types hold negative numbers?",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "answer": 0
+    },
+    "string-char-bool1": {
+      "type": 3,
+      "question": "Type in a code that includes the required header file to use string data type in the program:",
+      "task": "#include<{0}>",
+      "answers": [
+        "string"
+      ]
+    },
+    "string-char-bool2": {
+      "type": 3,
+      "question": "Type in the code to declare a 'char' variable named 'var' with 'z' as its value.",
+      "task": "{0} {1} = 'z';",
+      "answers": [
+        "char",
+        "var"
+      ]
+    },
+    "string-char-bool3": {
+      "type": 3,
+      "question": "Fill in the blanks to declare two variables a and b of type bool. Initialize the 'b' with true.",
+      "task": "{0} a = false;\nbool b = {1};",
+      "answers": [
+        "bool",
+        "true"
+      ]
+    },
+    "variable-naming-rules1": {
+      "type": 1,
+      "question": "Which is a correct rule for naming a variable?",
+      "choices": [
+        "Cannot start with a letter",
+        "Cannot start with a number",
+        "Cannot contain underscores"
+      ],
+      "answer": 1
+    },
+    "variable-naming-rules2": {
+      "type": 2,
+      "question": "Which of the following are legal variable names in C++?",
+      "choices": [
+        "14var",
+        "&*^var",
+        "salary",
+        "name3_var"
+      ],
+      "answers": [
+        2,
+        3
+      ]
+    },
+    "variable-naming-rules3": {
+      "type": 3,
+      "question": "Fill in the blanks to declare an int variable named var3, a double variable named salary, and a bool variable named ab_c14.",
+      "task": "{0} var3;\n{1} salary;\n{2} ab_c14;",
+      "answers": [
+        "int",
+        "double",
+        "bool"
+      ]
+    }
+  },
+  "lessons": {
+    "welcome-to-c++": {
+      "name": "Welcome to C++",
+      "parts": [
+        "@welcome-to-c++",
+        "?welcome-to-c++"
+      ]
+    },
+    "hello-world": {
+      "name": "Hello World!",
+      "parts": [
+        "@hello-world1",
+        "?hello-world1",
+        "@hello-world2",
+        "?hello-world2",
+        "@hello-world3",
+        "?hello-world3",
+        "@hello-world4",
+        "?hello-world4",
+        "@hello-world5",
+        "?hello-world5"
+      ]
+    },
+    "printing-text": {
+      "name": "Printing text",
+      "parts": [
+        "@printing-text1",
+        "?printing-text1",
+        "@printing-text2",
+        "?printing-text2",
+        "@printing-text3",
+        "?printing-text3",
+        "@printing-text4",
+        "?printing-text4",
+        "@printing-text5",
+        "?printing-text5"
+      ]
+    },
+    "comments": {
+      "name": "Comments",
+      "parts": [
+        "@comments1",
+        "?comments1",
+        "@comments2",
+        "?comments2",
+        "@comments3",
+        "?comments3"
+      ]
+    },
+    "variables": {
+      "name": "Variables",
+      "parts": [
+        "@variables1",
+        "?variables1",
+        "@variables2",
+        "?variables2",
+        "@variables3",
+        "?variables3",
+        "@variables4",
+        "?variables4"
+      ]
+    },
+    "working-with-variables": {
+      "name": "Working with Variables",
+      "parts": [
+        "@working-with-variables1",
+        "?working-with-variables1",
+        "@working-with-variables2",
+        "?working-with-variables2",
+        "@working-with-variables3",
+        "?working-with-variables3",
+        "@working-with-variables4",
+        "?working-with-variables4",
+        "@working-with-variables5",
+        "?working-with-variables5"
+      ]
+    },
+    "basic-arithmetic": {
+      "name": "Basic Arithmetic",
+      "parts": [
+        "@basic-arithmetic1",
+        "?basic-arithmetic1",
+        "@basic-arithmetic2",
+        "?basic-arithmetic2",
+        "@basic-arithmetic3",
+        "?basic-arithmetic3",
+        "@basic-arithmetic4",
+        "?basic-arithmetic4",
+        "@basic-arithmetic5",
+        "?basic-arithmetic5",
+        "@basic-arithmetic6",
+        "?basic-arithmetic6",
+        "@basic-arithmetic7",
+        "?basic-arithmetic7"
+      ]
+    },
+    "assigment-a-increment": {
+      "name": "Assigment and Increment Operators",
+      "parts": [
+        "@assigment-a-increment1",
+        "?assigment-a-increment1",
+        "@assigment-a-increment2",
+        "?assigment-a-increment2",
+        "@assigment-a-increment3",
+        "?assigment-a-increment3",
+        "@assigment-a-increment4",
+        "?assigment-a-increment4",
+        "@assigment-a-increment5",
+        "?assigment-a-increment5",
+        "@assigment-a-increment6",
+        "?assigment-a-increment6"
+      ]
+    },
+    "the-if-statement": {
+      "name": "The if Statement",
+      "parts": [
+        "@the-if-statement1",
+        "?the-if-statement1",
+        "@the-if-statement2",
+        "?the-if-statement2",
+        "@the-if-statement3",
+        "?the-if-statement3",
+        "@the-if-statement4",
+        "?the-if-statement4",
+        "@the-if-statement5",
+        "?the-if-statement5"
+      ]
+    },
+    "the-else-statement": {
+      "name": "The else Statement",
+      "parts": [
+        "@the-else-statement1",
+        "?the-else-statement1",
+        "@the-else-statement2",
+        "?the-else-statement2",
+        "@the-else-statement3",
+        "?the-else-statement3",
+        "@the-else-statement4",
+        "?the-else-statement4",
+        "@the-else-statement5",
+        "?the-else-statement5",
+        "@the-else-statement6",
+        "?the-else-statement6"
+      ]
+    },
+    "the-while-loop": {
+      "name": "The while Loop",
+      "parts": [
+        "@the-while-loop1",
+        "?the-while-loop1",
+        "@the-while-loop2",
+        "?the-while-loop2",
+        "@the-while-loop3",
+        "?the-while-loop3"
+      ]
+    },
+    "the-for-loop": {
+      "name": "The for loop",
+      "parts": [
+        "@the-for-loop1",
+        "?the-for-loop1",
+        "@the-for-loop2",
+        "?the-for-loop2",
+        "@the-for-loop3",
+        "?the-for-loop3"
+      ]
+    },
+    "the-do-while-loop": {
+      "name": "The do... while loop",
+      "parts": [
+        "@the-do-while-loop1",
+        "?the-do-while-loop1",
+        "@the-do-while-loop2",
+        "?the-do-while-loop2",
+        "@the-do-while-loop3",
+        "?the-do-while-loop3"
+      ]
+    },
+    "the-switch-statement": {
+      "name": "The switch Statement",
+      "parts": [
+        "@the-switch-statement1",
+        "?the-switch-statement1",
+        "@the-switch-statement2",
+        "?the-switch-statement2",
+        "@the-switch-statement3",
+        "?the-switch-statement3",
+        "@the-switch-statement4",
+        "?the-switch-statement4"
+      ]
+    },
+    "logical-operators": {
+      "name": "Logical Operators",
+      "parts": [
+        "@logical-operators1",
+        "@logical-operators2",
+        "@logical-operators3",
+        "@logical-operators4",
+        "?logical-operators1",
+        "?logical-operators2",
+        "?logical-operators3",
+        "?logical-operators4"
+      ]
+    },
+    "introduction-to-data-types": {
+      "name": "Introduction to Data Types",
+      "parts": [
+        "@introduction-to-data-types1",
+        "?introduction-to-data-types1",
+        "@introduction-to-data-types2",
+        "?introduction-to-data-types2",
+        "@introduction-to-data-types3",
+        "?introduction-to-data-types3",
+        "@introduction-to-data-types4",
+        "?introduction-to-data-types4",
+        "@introduction-to-data-types5",
+        "?introduction-to-data-types5"
+      ]
+    },
+    "int-float-double": {
+      "name": "int, float, double",
+      "parts": [
+        "@int-float-double1",
+        "?int-float-double1",
+        "@int-float-double2",
+        "?int-float-double2",
+        "@int-float-double3",
+        "?int-float-double3"
+      ]
+    },
+    "string-char-bool": {
+      "name": "string, char, bool",
+      "parts": [
+        "@string-char-bool1",
+        "?string-char-bool1",
+        "@string-char-bool2",
+        "?string-char-bool2",
+        "@string-char-bool3",
+        "?string-char-bool3"
+      ]
+    },
+    "variable-naming-rules": {
+      "name": "Variable Naming Rules",
+      "parts": [
+        "@variable-naming-rules1",
+        "?variable-naming-rules1",
+        "@variable-naming-rules2",
+        "?variable-naming-rules2",
+        "@variable-naming-rules3",
+        "?variable-naming-rules3"
+      ]
+    }
+  },
+  "sections": {
+    "basic-concepts": {
+      "name": "Basic Concepts",
+      "icon": "code",
+      "lessons": [
+        "welcome-to-c++",
+        "hello-world",
+        "printing-text",
+        "comments",
+        "variables",
+        "working-with-variables",
+        "basic-arithmetic",
+        "assigment-a-increment"
+      ]
+    },
+    "conditionals-a-loops": {
+      "name": "Conditionals and Loops",
+      "icon": "all_inclusive",
+      "lessons": [
+        "the-if-statement",
+        "the-else-statement",
+        "the-while-loop",
+        "the-for-loop",
+        "the-do-while-loop",
+        "the-switch-statement",
+        "logical-operators"
+      ]
+    },
+    "data-types": {
+      "name": "Data Types",
+      "icon": "apps",
+      "lessons": [
+        "introduction-to-data-types",
+        "int-float-double",
+        "string-char-bool",
+        "variable-naming-rules"
+      ]
+    }
+  },
+  "groups": {
+    "group-1": {
+      "sections": [
+        "basic-concepts",
+        "conditionals-a-loops",
+        "data-types"
+      ],
+      "shortcut": []
+    },
+    "group-2": {
+      "sections": [
+      ],
+      "shortcut": []
+    }
+  }
+}

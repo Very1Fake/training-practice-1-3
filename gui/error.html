@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block nav_button %}onclick="window.location.href='/'"{% endblock %}
+{% block nav_button_icon %}home{% endblock %}
+{% block nav_title %}Error{% endblock %}
+
+{% block content %}
+    <h1>{{ error }}</h1>
+    <h2>Some error occurred. Try to restart app.</h2>
+{% endblock %}

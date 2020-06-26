@@ -1,0 +1,94 @@
+{
+  "id": "rust",
+  "name": "Rust",
+  "title": "Rust Tutorial",
+  "description": "Rust is a modern systems programming language focusing on safety, speed, and concurrency.",
+  "icon": "rust-logo.svg",
+  "abstracts": {
+    "what-is-rust": "<h1>Welcome to Rust!</h1><p>Rust is a statically and strongly typed systems programming language. statically means that all types are known at compile-time, strongly means that these types are designed to make it harder to write incorrect programs. A successful compilation means you have a much better guarantee of correctness than with a cowboy language like C. systems means generating the best possible machine code with full control of memory use. So the uses are pretty hardcore: operating systems, device drivers and embedded systems that might not even have an operating system. However, it's actually a very pleasant language to write normal application code in as well.</p><p>The big difference from C and C++ is that Rust is safe by default; all memory accesses are checked. It is not possible to corrupt memory by accident.</p>",
+    "your-first-program1": "<h1>Hello World!</h1><p>As when learning any new language, the place to start is with the classic \"Hello World!\" program:</p><pre><code class=\"rust\">// hello.rs\nfn main() {\n    println!(\"Hello, World!\");\n}</pre></code><p>Let's break down the code to understand each line:<br><b>fn main()</b> The <b>main()</b> function is the entry point to a program. Curly brackets <b>{ }</b> indicate the beginning and end of a function (also called a code block). The statements inside the brackets determine what the function does when executed.</p><p>To start your program you need execute these commands:</p><pre><code class=\"bash\">$ rustc hello.rs\n$ ./hello\nHello, World!</code></pre>",
+    "your-first-program2": "<h1>Hello World!</h1><p>The <b>println!</b> function is used to generate output:</p></p><pre><code class=\"rust\">// hello.rs\nfn main() {\n    println!(\"Hello, World!\");\n}</pre></code><p>Here, we pass the text \"Hello World!\" to it.<br>The \\n <b>escape sequence</b> outputs a newline character. Escape sequences always begin with a backslash \\.\nThe <b>semicolon</b> ; indicates the end of the statement. Each statement must end with a semicolon.</p>",
+    "variable-a-mutability": "<h1>Variables and Mutability</h1><p>By default variables are immutable. This is one of many nudges Rust gives you to write your code in a way that takes advantage of the safety and easy concurrency that Rust offers. However, you still have the option to make your variables mutable.</p><p>When a variable is immutable, once a value is bound to a name, you can’t change that value.</p><pre><code class=\"rust\">//main.rs\nfn main() {\n    let x = 5;\n    println!(\"The value of x is: {}\", x);\n    x = 6;\n    println!(\"The value of x is: {}\", x);\n}</code></pre><p>Save and run the program using <code>rustc main.rs</code>. You should receive an error message, as shown in this output:</p><pre><code class=\"bash\">$ rustc main.rs\n   Compiling variables v0.1.0 (file:///projects/variables)\nerror[E0384]: cannot assign twice to immutable variable `x`\n --> src/main.rs:4:5\n  |\n2 |     let x = 5;\n  |         -\n  |         |\n  |         first assignment to `x`\n  |         help: make this binding mutable: `mut x`\n3 |     println!(\\\"The value of x is: {}\\\", x);\n4 |     x = 6;\n  |     ^^^^^ cannot assign twice to immutable variable\n\nerror: aborting due to previous error\n\nFor more information about this error, try `rustc --explain E0384`.\nerror: could not compile `variables`.\n\nTo learn more, run the command again with --verbose</code></pre><p>This example shows how the compiler helps you find errors in your programs. Even though compiler errors can be frustrating, they only mean your program isn’t safely doing what you want it to do yet; they do <em>not</em> mean that you’re not a good programmer!</p><p>The error message indicates that the cause of the error is that you <code>cannot assign twice to immutable variable x</code>, because you tried to assign a second value to the immutable <code>x</code> variable.</p>\n",
+    "data-types1": "<h1>Data Types</h1><p>Every value in Rust is of a certain data type, which tells Rust what kind of data is being specified so it knows how to work with that data. We’ll look at two data type subsets: scalar and compound.\n\nKeep in mind that Rust is a statically typed language, which means that it must know the types of all variables at compile time. The compiler can usually infer what type we want to use based on the value and how we use it.</p>",
+    "data-types2": "<h1>Scalar Types</h1><h2>Integer Types</h2><p>An <em>integer</em> is a number without a fractional component. We used one integer type in Chapter 2, the <code>u32</code> type. This type declaration indicates that the value it’s associated with should be an unsigned integer (signed integer types start with <code>i</code>, instead of <code>u</code>) that takes up 32 bits of space. Table 1 shows the built-in integer types in Rust. Each variant in the Signed and Unsigned columns (for example, <code>i16</code>) can be used to declare the type of an integer value.</p><p><span>Table 1</span></p><div class=\"a-table\"><table><thead><tr><th>Length</th><th>Signed</th><th>Unsigned</th></tr></thead><tbody><tr><td>8-bit</td><td>i8</td><td>u8</td></tr><tr><td>16-bit</td><td>i16</td><td>i16</td></tr><tr><td>32-bit</td><td>i32</td><td>u32</td></tr><tr><td>64-bit</td><td>i64</td><td>i64</td></tr><tr><td>128-bit</td><td>i128</td><td>u128</td></tr><tr><td>arch</td><td>isize</td><td>usize</td></tr></tbody></table></div><p>The <code>isize</code> and <code>usize</code> types depend on the kind of computer your program is running on: 64 bits if you’re on a 64-bit architecture and 32 bits if you’re on a 32-bit architecture.</p><p>You can write integer literals in any of the forms shown in Table 2. Note that all number literals except the byte literal allow a type suffix, such as <code>57u8</code>, and <code>_</code> as a visual separator, such as <code>1_000</code>.</p><p><span>Table 2</span></p><div class=\"a-table\"><table><thead><tr><th>Number literals</th><th>Example</th></tr></thead><tbody><tr><td>Decimal</td><td>98_222</td></tr><tr><td>Hex</td><td>0xff</td></tr><tr><td>Octal</td><td>0o77</td></tr><tr><td>Binary</td><td>0b1111_0000</td></tr><tr><td>Byte (u8 only)</td><td>b'A'</td></tr></tbody></table></div>"
+  },
+  "quizzes": {
+    "what-is-rust": {
+      "type": 1,
+      "question": "Which is the main advantage of Rust?",
+      "choices": [
+        "General purpose programming language",
+        "Video editing program",
+        "Client-side scripting language"
+      ],
+      "answer": 0
+    },
+    "your-first-program1": {
+      "type": 3,
+      "question": "Fill in the blanks to create \"main\" function",
+      "task": "fn {0}() {{\n    println!(\"Hi\");\n}}",
+      "answers": [
+        "main"
+      ]
+    },
+    "your-first-program2": {
+      "type": 3,
+      "question": "Fill in the blanks to output \"Hi, everyone!\" to the screen:",
+      "task": "fn main() {{\n    {0}(\"Hi, everyone!\");\n}}",
+      "answers": [
+        "println!"
+      ]
+    }
+  },
+  "lessons": {
+    "what-is-the-rust": {
+      "name": "What is Rust?",
+      "parts": [
+        "@what-is-rust",
+        "?what-is-rust"
+      ]
+    },
+    "your-first-program": {
+      "name": "Your first program",
+      "parts": [
+        "@your-first-program1",
+        "?your-first-program1",
+        "@your-first-program2",
+        "?your-first-program2"
+      ]
+    },
+    "variable-a-mutability": {
+      "name": "Variables and Mutability",
+      "parts": [
+        "@variable-a-mutability"
+      ]
+    },
+    "data-types": {
+      "name": "Data Types",
+      "parts": [
+        "@data-types1",
+        "@data-types2"
+      ]
+    }
+  },
+  "sections": {
+    "basics": {
+      "name": "Basics",
+      "icon": "code",
+      "lessons": [
+        "what-is-the-rust",
+        "your-first-program",
+        "variable-a-mutability",
+        "data-types"
+      ]
+    }
+  },
+  "groups": {
+    "group-1": {
+      "shortcut": [],
+      "sections": [
+        "basics"
+      ]
+    }
+  }
+}
