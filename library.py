@@ -7,13 +7,13 @@ denied = ('@', '?', '!', '*')
 
 
 @dataclass
-class Abstract:
-    __slots__ = ['id', 'text']
+class Abstract:  # Class to store abstracts
+    __slots__ = ['id', 'text']  # Optimization
 
     id: str
     text: str
 
-    def __post_init__(self):
+    def __post_init__(self):  # Data validation
         if not isinstance(self.id, str):
             raise TypeError('"id" must be string (Abstract)')
         if not isinstance(self.text, str):
@@ -21,14 +21,14 @@ class Abstract:
 
 
 @dataclass
-class SimpleQuiz:
-    __slots__ = ['id', 'question', 'answer']
+class SimpleQuiz:  # Class to store quiz (type 0)
+    __slots__ = ['id', 'question', 'answer']  # Optimization
 
     id: str
     question: str
     answer: str
 
-    def __post_init__(self):
+    def __post_init__(self):  # Data validation
         if not isinstance(self.id, str):
             raise TypeError('"id" must be string (SimpleQuiz)')
         if not isinstance(self.question, str):
@@ -38,15 +38,15 @@ class SimpleQuiz:
 
 
 @dataclass
-class ChoiceQuiz:
-    __slots__ = ['id', 'question', 'choices', 'answer']
+class ChoiceQuiz:  # Class to store quiz (type 1)
+    __slots__ = ['id', 'question', 'choices', 'answer']  # Optimization
 
     id: str
     question: str
     choices: List[str]
     answer: int
 
-    def __post_init__(self):
+    def __post_init__(self):  # Data validation
         if not isinstance(self.id, str):
             raise TypeError('"id" must be string (ChoiceQuiz)')
         if not isinstance(self.question, str):
@@ -62,15 +62,15 @@ class ChoiceQuiz:
 
 
 @dataclass
-class MultiChoiceQuiz:
-    __slots__ = ['id', 'question', 'choices', 'answers']
+class MultiChoiceQuiz:  # Class to store quiz (type 2)
+    __slots__ = ['id', 'question', 'choices', 'answers']  # Optimization
 
     id: str
     question: str
     choices: List[str]
     answers: List[int]
 
-    def __post_init__(self):
+    def __post_init__(self):  # Data validation
         if not isinstance(self.id, str):
             raise TypeError('"id" must be string (MultiChoiceQuiz)')
         if not isinstance(self.question, str):
@@ -95,15 +95,15 @@ class MultiChoiceQuiz:
 
 
 @dataclass
-class EditQuiz:
-    __slots__ = ['id', 'question', 'task', 'answers']
+class EditQuiz:  # Class to store quiz (type 3)
+    __slots__ = ['id', 'question', 'task', 'answers']  # Optimization
 
     id: str
     question: str
     task: str
     answers: List[str]
 
-    def __post_init__(self):
+    def __post_init__(self):  # Data validation
         if not isinstance(self.id, str):
             raise TypeError('"id" must be string (EditQuiz)')
         if not isinstance(self.question, str):
@@ -118,12 +118,12 @@ class EditQuiz:
             raise TypeError('"answers" must be list of strings (EditQuiz)')
 
 
-class Lesson:
+class Lesson:  # Class to store lesson
     id: str
     name: str
     parts: List[str]
 
-    def __init__(self, id_: str, name: str, parts: List[str], course):
+    def __init__(self, id_: str, name: str, parts: List[str], course):  # Data validation
         self.id = id_
 
         if isinstance(name, str):
@@ -138,7 +138,7 @@ class Lesson:
                 raise ValueError(f'Lesson must have at least one part ("{self.id}" lesson)')
 
             for i in parts:
-                if isinstance(i, str):
+                if isinstance(i, str):  # Detect part type
                     if i.startswith('@'):
                         if i[1:] in course.abstracts:
                             self.parts.append(i)
@@ -158,7 +158,7 @@ class Lesson:
             self,
             course,
             id_: int
-    ) -> Tuple[int, Union[Abstract, SimpleQuiz, ChoiceQuiz, MultiChoiceQuiz, EditQuiz]]:
+    ) -> Tuple[int, Union[Abstract, SimpleQuiz, ChoiceQuiz, MultiChoiceQuiz, EditQuiz]]:  # Get part class with id
         id_ = self.parts[id_]
 
         if id_.startswith('@'):
@@ -174,13 +174,13 @@ class Lesson:
                 return 4, q
 
 
-class Section:
+class Section:  # Class to store section
     id: str
     name: str
     icon: str
     lessons: List[str]
 
-    def __init__(self, id_: str, name: str, icon: str, lessons: List[str], course):
+    def __init__(self, id_: str, name: str, icon: str, lessons: List[str], course):  # Data validation
         self.id = id_
 
         if isinstance(id_, str):
@@ -222,12 +222,12 @@ class Section:
             raise TypeError('"lessons" must be list')
 
 
-class Group:
+class Group:  # Class to store group
     id: str
     shortcut: List[Union[ChoiceQuiz, MultiChoiceQuiz, SimpleQuiz]]
     sections: List[Section]
 
-    def __init__(self, id_: str, shortcut: List[str], sections: List[str], course):
+    def __init__(self, id_: str, shortcut: List[str], sections: List[str], course):  # Data validation
         self.id = id_
 
         if isinstance(shortcut, list):
@@ -259,7 +259,7 @@ class Group:
             raise TypeError('"sections" must be list')
 
 
-class Course:
+class Course:  # Class to store course
     id: str
     name: str
     title: str
@@ -272,7 +272,7 @@ class Course:
     groups: Dict[str, Group]
     path: str
 
-    def __init__(self, source: str, path: str):
+    def __init__(self, source: str, path: str):  # Data validation
         source = json.loads(source)
         self.path = path
 
@@ -313,7 +313,7 @@ class Course:
 
         if 'icon' in source:
             if isinstance(source['icon'], str):
-                if os.path.isfile(f'{self.path}/{source["icon"]}'):
+                if os.path.isfile(f'{self.path}/{source["icon"]}'):  # Check file existence
                     self.icon = source["icon"]
                 else:
                     raise OSError(f'Icon file "{self.path}/{source["icon"]}" not found')
@@ -322,7 +322,7 @@ class Course:
         else:
             raise IndexError(f'"icon" must be specified ("{self.id}" course)')
 
-        if 'abstracts' in source:
+        if 'abstracts' in source:  # Initialize abstracts
             if isinstance(source['abstracts'], dict):
                 self.abstracts = {}
 
@@ -333,7 +333,7 @@ class Course:
         else:
             raise IndexError(f'"abstract" field must be specified in "{self.name}" course')
 
-        if 'quizzes' in source:
+        if 'quizzes' in source:  # Initialize quizzes
             if isinstance(source['quizzes'], dict):
                 self.quizzes = {}
 
@@ -350,7 +350,7 @@ class Course:
         else:
             raise IndexError(f'"quizzes" field must be specified ("{self.name}" course)')
 
-        if 'lessons' in source:
+        if 'lessons' in source:  # Initialize lessons
             if isinstance(source['lessons'], dict):
                 self.lessons = {}
 
@@ -364,7 +364,7 @@ class Course:
         else:
             raise IndexError(f'"lessons" field must be specified ("{self.name}" course)')
 
-        if 'sections' in source:
+        if 'sections' in source:  # Initialize sections
             if isinstance(source['sections'], dict):
                 self.sections = {}
 
@@ -375,7 +375,7 @@ class Course:
         else:
             raise TypeError(f'"sections" field must be specified ("{self.name}" course)')
 
-        if 'groups' in source:
+        if 'groups' in source:  # Initialize groups
             if isinstance(source['groups'], dict):
                 self.groups = {}
 
@@ -389,6 +389,7 @@ class Course:
         else:
             raise TypeError(f'"sections" field must be specified ("{self.name}" course)')
 
+    # Initialize quiz by type
     @staticmethod
     def quiz_factory(id_: str, type: int, **kwargs) -> Union[ChoiceQuiz, MultiChoiceQuiz, SimpleQuiz, EditQuiz]:
         for i in denied:
@@ -431,7 +432,7 @@ class Course:
             return EditQuiz(id_, **kwargs)
 
 
-class Content:
+class Content:  # Class to store all content
     path: str = 'content/'
     courses: Dict[str, Course]
 
@@ -448,22 +449,22 @@ class Content:
                 continue
 
 
-class Profile:
+class Profile:  # Class to store all progress
     courses: Dict[str, Dict[str, int]]
 
-    def __init__(self):
+    def __init__(self):  # Load and validate profile
         if not os.path.isdir('content/'):
             os.makedirs('content/')
 
         if os.path.isfile('content/profile.json') and (profile := open('content/profile.json').read()) and \
-                isinstance(profile := json.loads(profile), dict):
+                isinstance(profile := json.loads(profile), dict):  # Check file existence
             if 'courses' in profile:
                 if isinstance(profile['courses'], dict):
-                    for k, v in profile['courses'].items():
+                    for k, v in profile['courses'].items():  # Check courses
                         if not isinstance(k, str):
                             raise TypeError('All keys of "courses" must be string (profile)')
 
-                        if isinstance(v, dict):
+                        if isinstance(v, dict):  # Check lessons
                             for j, z in v.items():
                                 if not isinstance(j, str):
                                     raise TypeError(f'All keys of "{k}" course must be str')
@@ -480,41 +481,42 @@ class Profile:
         else:
             self.courses = {}
 
+    # Check lesson availability
     def check_lesson(self, content: Content, course: str, section: str, lesson: str) -> int:
         if course not in self.courses:
             self.courses[course] = {}
 
-        if lesson in self.courses[course]:
+        if lesson in self.courses[course]:  # Check current lesson availability if it in self.courses
             if (le := self.courses[course][lesson]) == 0:
                 return 0
             elif le > (p := len(content.courses[course].lessons[lesson].parts)):
                 return 2
             elif le <= p:
                 return 1
-        else:
-            if i := (lk := content.courses[course].sections[section].lessons).index(lesson):
+        else:  # Otherwise check availability by previous lessons/section (recursion)
+            if i := (lk := content.courses[course].sections[section].lessons).index(lesson):  # Check previous lesson
                 if self.check_lesson(content, course, section, lk[i - 1]) == 2:
-                    self.courses[course][lesson] = 1
+                    self.courses[course][lesson] = 1  # Create record about lesson
                     return 1
                 else:
                     return 0
             else:
-                if j := (sk := list(content.courses[course].sections.keys())).index(section):
+                if j := (sk := list(content.courses[course].sections.keys())).index(section):  # Check previous section
                     if self.check_section(content, course, sk[j - 1]) == 2:
-                        self.courses[course][lesson] = 1
+                        self.courses[course][lesson] = 1  # Create record about lesson
                         return 1
                     else:
                         return 0
                 else:
-                    self.courses[course][lesson] = 1
+                    self.courses[course][lesson] = 1  # Create record about lesson
                     return 1
 
-    def check_section(self, content: Content, course: str, section: str) -> int:
+    def check_section(self, content: Content, course: str, section: str) -> int:  # Check section availability
         if course not in self.courses:
             self.courses[course] = {}
 
         ss = content.courses[course].sections
-        for i in ss[section].lessons:
+        for i in ss[section].lessons:  # Check section lessons availability
             if (lc := self.check_lesson(content, course, section, i)) == 0:
                 break
             elif lc == 1:
@@ -522,7 +524,7 @@ class Profile:
         else:
             return 2
 
-        if i := (sk := list(ss.keys())).index(section):
+        if i := (sk := list(ss.keys())).index(section):  # Check previous section availability
             if self.check_section(content, course, sk[i - 1]) == 2:
                 return 1
             else:
@@ -530,7 +532,7 @@ class Profile:
         else:
             return 1
 
-    def get_lesson_part(self, course: str, lesson: str) -> int:
+    def get_lesson_part(self, course: str, lesson: str) -> int:  # Get lesson record (if not exists create empty record)
         if course in self.courses:
             if lesson not in self.courses[course]:
                 self.courses[course][lesson] = 0
@@ -538,7 +540,7 @@ class Profile:
         else:
             return 0
 
-    def dump(self) -> None:
+    def dump(self) -> None:  # Save to file
         if not os.path.isdir('content/'):
             os.makedirs('content/')
         json.dump({'courses': self.courses}, open('content/profile.json', 'w+'), indent=2)
